@@ -10,158 +10,150 @@
 
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <div class="logo">🌊 SeaGuard</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#dashboard">Weather</a>
-            <a href="#alerts">Alerts</a>
-            <a href="#safety">Safety</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">🌊 SeaGuard</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#dashboard">Weather</a>
+        <a href="#alerts">Alerts</a>
+        <a href="#safety">Safety</a>
+    </nav>
+</header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <h1>Safer Seas, Safer Lives</h1>
-        <p>Smart Weather Monitoring and Storm Alert System for Fishermen</p>
-        <a href="#dashboard" class="btn">Check Weather</a>
-    </section>
+<section id="home" class="hero">
+    <h1>Safer Seas, Safer Lives</h1>
+    <p>Smart Weather Monitoring and Storm Alert System for Fishermen</p>
+    <a href="#dashboard" class="btn">Check Weather</a>
+</section>
 
-    <!-- Weather Dashboard -->
-    <section id="dashboard">
-        <h2>Marine Weather Dashboard</h2>
-        <p class="location">📍 Location: Rameswaram, Tamil Nadu</p>
+<section id="dashboard">
+    <h2>Marine Weather Dashboard</h2>
+    <p class="location">📍 Location: Rameswaram, Tamil Nadu</p>
 
-        <div class="weather-container">
+    <div class="weather-container">
 
-            <div class="weather-card">
-                <h3>💨 Wind Speed</h3>
-                <p><span id="wind">12</span> km/h</p>
-            </div>
-
-            <div class="weather-card">
-                <h3>🌬️ Wind Gust</h3>
-                <p><span id="gust">18</span> km/h</p>
-            </div>
-
-            <div class="weather-card">
-                <h3>🌡️ Temperature</h3>
-                <p><span id="temperature">29</span> °C</p>
-            </div>
-
-            <div class="weather-card">
-                <h3>🌧️ Rainfall</h3>
-                <p><span id="rainfall">2</span> mm</p>
-            </div>
-
-            <div class="weather-card">
-                <h3>🌊 Wave Height</h3>
-                <p><span id="wave">0.8</span> metres</p>
-            </div>
-
-            <div class="weather-card">
-                <h3>💧 Rain Drop Size</h3>
-                <p><span id="drops">1.2</span> mm</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Manual Weather Input -->
-    <section class="input-section">
-        <h2>Update Weather Details</h2>
-
-        <div class="input-container">
-
-            <label>Wind Speed (km/h)</label>
-            <input type="number" id="windInput" value="12" min="0">
-
-            <label>Wind Gust (km/h)</label>
-            <input type="number" id="gustInput" value="18" min="0">
-
-            <label>Temperature (°C)</label>
-            <input type="number" id="tempInput" value="29">
-
-            <label>Rainfall (mm)</label>
-            <input type="number" id="rainInput" value="2" min="0">
-
-            <label>Wave Height (metres)</label>
-            <input type="number" id="waveInput" value="0.8" min="0">
-
-            <label>Rain Drop Size (mm)</label>
-            <input type="number" id="dropInput" value="1.2" min="0">
-
-            <button onclick="checkWeather()">Update Weather</button>
-
-        </div>
-    </section>
-
-    <!-- Storm Alert Section -->
-    <section id="alerts">
-        <h2>Storm Alert System</h2>
-
-        <div id="alertBox" class="alert green">
-            <h3 id="alertTitle">GREEN ALERT - Low Demo Risk</h3>
-            <p id="alertMessage">
-                Sample conditions are below the demonstration alert thresholds.
-            </p>
+        <div class="weather-card">
+            <h3>💨 Wind Speed</h3>
+            <p><span id="wind">Loading...</span> km/h</p>
         </div>
 
-        <p class="warning">
-            Important: This is only a demonstration system.
-            Always follow official IMD, INCOIS and local authority warnings.
-            Never use this prototype to decide whether it is safe to go fishing.
+        <div class="weather-card">
+            <h3>🌬️ Wind Gust</h3>
+            <p><span id="gust">Not connected</span> km/h</p>
+        </div>
+
+        <div class="weather-card">
+            <h3>🌡️ Temperature</h3>
+            <p><span id="temperature">Loading...</span> °C</p>
+        </div>
+
+        <div class="weather-card">
+            <h3>🌧️ Rainfall</h3>
+            <p><span id="rainfall">Loading...</span> mm</p>
+        </div>
+
+        <div class="weather-card">
+            <h3>🌊 Wave Height</h3>
+            <p><span id="wave">Not connected</span> metres</p>
+        </div>
+
+        <div class="weather-card">
+            <h3>💧 Rain Drop Size</h3>
+            <p><span id="drops">Not available</span></p>
+        </div>
+
+        <div class="weather-card">
+            <h3>💦 Humidity</h3>
+            <p><span id="humidity">Loading...</span> %</p>
+        </div>
+
+        <div class="weather-card">
+            <h3>🌡️ Atmospheric Pressure</h3>
+            <p><span id="pressure">Loading...</span> hPa</p>
+        </div>
+
+    </div>
+
+    <p id="lastUpdated">Waiting for weather data...</p>
+</section>
+
+<section class="input-section">
+    <h2>Update Weather Details (Demo)</h2>
+
+    <div class="input-container">
+
+        <label>Wind Speed (km/h)</label>
+        <input type="number" id="windInput" value="12" min="0">
+
+        <label>Wind Gust (km/h)</label>
+        <input type="number" id="gustInput" value="18" min="0">
+
+        <label>Temperature (°C)</label>
+        <input type="number" id="tempInput" value="29">
+
+        <label>Rainfall (mm)</label>
+        <input type="number" id="rainInput" value="2" min="0">
+
+        <label>Wave Height (metres)</label>
+        <input type="number" id="waveInput" value="0.8" min="0">
+
+        <label>Rain Drop Size (mm)</label>
+        <input type="number" id="dropInput" value="1.2" min="0">
+
+        <button onclick="checkWeather()">Update Demo Weather</button>
+
+    </div>
+</section>
+
+<section id="alerts">
+    <h2>Storm Alert System</h2>
+
+    <div id="alertBox" class="alert green">
+        <h3 id="alertTitle">GREEN ALERT - Low Demo Risk</h3>
+        <p id="alertMessage">
+            Sample conditions are below the demonstration alert thresholds.
         </p>
-    </section>
+    </div>
 
-    <!-- Safety Section -->
-    <section id="safety">
-        <h2>Fishermen Safety Guidelines</h2>
+    <p class="warning">
+        Important: This is only a demonstration system.
+        Always follow official IMD, INCOIS and local authority warnings.
+        Never use this prototype to decide whether it is safe to go fishing.
+    </p>
+</section>
 
-        <div class="safety-container">
-            <div class="safety-card">
-                <h3>📢 Check Weather</h3>
-                <p>Check official weather forecasts before going to sea.</p>
-            </div>
+<section id="safety">
+    <h2>Fishermen Safety Guidelines</h2>
 
-            <div class="safety-card">
-                <h3>🦺 Wear Life Jackets</h3>
-                <p>Always carry proper safety equipment.</p>
-            </div>
+    <div class="safety-container">
 
-            <div class="safety-card">
-                <h3>📻 Stay Connected</h3>
-                <p>Keep communication devices ready.</p>
-            </div>
+        <div class="safety-card">
+            <h3>📢 Check Weather</h3>
+            <p>Check official weather forecasts before going to sea.</p>
         </div>
-    </section>
 
-    <footer>
-        <h3>🌊 SeaGuard</h3>
-        <p>Smart Fishermen Safety System</p>
-        <p>Designed for Coastal Communities</p>
-        <p>© 2026 SeaGuard Project</p>
-    </footer>
+        <div class="safety-card">
+            <h3>🦺 Wear Life Jackets</h3>
+            <p>Always carry proper safety equipment.</p>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="safety-card">
+            <h3>📻 Stay Connected</h3>
+            <p>Keep communication devices ready.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <h3>🌊 SeaGuard</h3>
+    <p>Smart Fishermen Safety System</p>
+    <p>Designed for Coastal Communities</p>
+    <p>© 2026 SeaGuard Project</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
-<div class="weather-data">
-    <h2>Live Weather Readings</h2>
 
-    <p>Temperature:
-    <span id="temperature">Loading...</span></p>
-
-    <p>Humidity:
-    <span id="humidity">Loading...</span></p>
-
-    <p>Rainfall:
-    <span id="rainfall">Loading...</span></p>
-
-    <p>Wind Speed:
-    <span id="wind">Loading...</span></p>
-
-    <p>Pressure:
-    <span id="pressure">Loading...</span></p>
-</div>
