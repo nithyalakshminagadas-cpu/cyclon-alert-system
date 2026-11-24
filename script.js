@@ -92,19 +92,19 @@ async function getWeather() {
     const weather = data.current;
 
     document.getElementById("temperature").innerText =
-      weather.temperature_2m + " °C";
+    weather.temperature_2m;
 
-    document.getElementById("humidity").innerText =
-      weather.relative_humidity_2m + " %";
+document.getElementById("humidity").innerText =
+    weather.relative_humidity_2m;
 
-    document.getElementById("rainfall").innerText =
-      weather.precipitation + " mm";
+document.getElementById("rainfall").innerText =
+    weather.precipitation;
 
-    document.getElementById("wind").innerText =
-      weather.wind_speed_10m + " km/h";
+document.getElementById("wind").innerText =
+    weather.wind_speed_10m;
 
-    document.getElementById("pressure").innerText =
-      weather.pressure_msl + " hPa";
+document.getElementById("pressure").innerText =
+    weather.pressure_msl;
 
   } catch (error) {
     console.log("Weather data unavailable", error);
