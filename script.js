@@ -81,3 +81,37 @@ function checkWeather() {
 
     }
 }
+
+async function getWeather() {
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=9.2885&longitude=79.3129&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl&wind_speed_unit=kmh&timezone=Asia%2FKolkata";
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const weather = data.current;
+
+    document.getElementById("temperature").innerText =
+      weather.temperature_2m + " °C";
+
+    document.getElementById("humidity").innerText =
+      weather.relative_humidity_2m + " %";
+
+    document.getElementById("rainfall").innerText =
+      weather.precipitation + " mm";
+
+    document.getElementById("wind").innerText =
+      weather.wind_speed_10m + " km/h";
+
+    document.getElementById("pressure").innerText =
+      weather.pressure_msl + " hPa";
+
+  } catch (error) {
+    console.log("Weather data unavailable", error);
+  }
+}
+
+getWeather();
+
+// Refresh readings every 10 minutes
+setInterval(getWeather, 600000);
